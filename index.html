@@ -51,62 +51,53 @@
 
       <section id="privacy">
         <h2>Privacy Policy</h2>
-        <p class="muted">Last updated: June 17, 2026</p>
+        <p class="muted">Effective date: June 18, 2026 · Contact: <a href="mailto:haijayousif@gmail.com">haijayousif@gmail.com</a></p>
 
         <p>
-          TootieTry (“the app,” “we,” “us”) is a personal virtual try-on app made for a small number of
-          private users. We collect only what the app needs to work, we never sell your data, and we show
-          no ads. This policy explains what we collect and who we share it with.
+          TootieTry (“the app”, “we”) is a personal virtual try-on and wardrobe app. This policy
+          explains what we collect, how it’s used, who it’s shared with, and how you can delete it.
         </p>
 
-        <h3>Information we collect</h3>
+        <h3>What we collect</h3>
         <ul>
-          <li><strong>Account email</strong> — used to create your account and sign you in.</li>
-          <li><strong>Photos you add</strong> — your full-body photo and photos of your own clothing.</li>
-          <li><strong>Approximate location</strong> — only if you enable weather-based outfit suggestions; used to look up local weather. It is not stored with your account.</li>
-          <li><strong>Wardrobe data you enter</strong> — item names, categories, colors, tags, prices, saved outfits, and wear history.</li>
+          <li><strong>Account info</strong> — the email address and password you sign up with (the password is handled by our authentication provider; we never see it in plain text).</li>
+          <li><strong>Photos you upload</strong> — a full-body photo of yourself and photos of your clothing.</li>
+          <li><strong>Wardrobe data you create</strong> — item names, categories, colors, tags, prices, saved outfits, wear logs, and outfit plans.</li>
+          <li><strong>Approximate location</strong> — only if you grant permission, used once to fetch local weather for outfit suggestions. It is not stored or linked to your account.</li>
         </ul>
+        <p>We do <strong>not</strong> use analytics or advertising SDKs, and we do <strong>not</strong> track you across other apps or websites.</p>
+
+        <h3>How your data is used</h3>
         <p>
-          We do <strong>not</strong> collect advertising identifiers, your contacts, or browsing history,
-          and we do <strong>not</strong> use third-party advertising or analytics SDKs.
+          Your data is used solely to provide the app’s features: storing your closet, rendering
+          outfits onto your photo, suggesting looks, and tracking wear. We do not sell your data.
         </p>
 
-        <h3>How your information is used, and who processes it</h3>
-        <p>To provide the app’s features, we use the following service providers:</p>
+        <h3>Who we share data with (service providers)</h3>
         <ul>
-          <li><strong>Supabase</strong> — stores your account, photos, and wardrobe data. Your data is isolated to your own account by per-user access rules. (<a href="https://supabase.com/privacy">privacy</a>)</li>
-          <li><strong>FASHN</strong> — to render a try-on, your body photo and the garment images you select are sent to FASHN to generate the result image. (<a href="https://fashn.ai/privacy">privacy</a>)</li>
-          <li><strong>Replicate</strong> — when you remove a garment’s background or detect its colors, that garment image is sent to Replicate. (<a href="https://replicate.com/privacy">privacy</a>)</li>
-          <li><strong>Open-Meteo</strong> — if weather suggestions are enabled, your approximate coordinates are sent to fetch the forecast. No account or identifier is shared. (<a href="https://open-meteo.com/en/terms">terms</a>)</li>
+          <li><strong>Supabase</strong> — hosts our database, file storage, and authentication. Your photos and wardrobe data are stored here under your account, isolated by row-level security.</li>
+          <li><strong>FASHN</strong> — a third-party AI service. When you tap “Try on,” your body photo and the selected garment images are sent to FASHN, which returns the rendered try-on image. The app asks for your explicit consent before this happens the first time.</li>
+          <li><strong>A background-removal service</strong> (remove.bg or Replicate) — garment images are sent to cut out their background and detect colors.</li>
+          <li><strong>Open-Meteo</strong> — weather data by approximate coordinates; no personal identifiers sent.</li>
         </ul>
-        <p>Each provider processes your data only to deliver the requested feature, under its own privacy policy (linked above).</p>
+        <p>These providers process your images only to perform the function above.</p>
 
-        <h3>Storage &amp; security</h3>
+        <h3>Data retention and deletion</h3>
         <p>
-          Photos are stored in Supabase Storage under your own account folder, and your data is protected by
-          per-user access rules. All data is transmitted over encrypted connections (HTTPS).
-        </p>
-
-        <h3>Notifications</h3>
-        <p>
-          The optional daily outfit reminder is a <strong>local</strong> notification scheduled on your device.
-          We do not run a push server and do not collect push/notification tokens.
-        </p>
-
-        <h3>Keeping or deleting your data</h3>
-        <p>
-          You can delete individual garments, photos, and saved outfits in the app at any time. To delete your
-          account and all associated data, email us at the address below and we’ll remove it.
+          We keep your data until you delete it. You can <strong>permanently delete your account and
+          all associated data</strong> at any time from the app: <strong>You → Delete account</strong>.
+          This removes your profile, photos (from storage), closet items, saved outfits, try-on
+          history, wear logs, and plans, and deletes your login. Deletion is immediate and cannot be undone.
         </p>
 
         <h3>Children</h3>
-        <p>TootieTry is not directed to children and is not intended for use by children under 13.</p>
+        <p>TootieTry is not directed at children and is not intended for use by children under 13.</p>
 
         <h3>Changes</h3>
-        <p>We may update this policy; the “last updated” date above reflects the current version.</p>
+        <p>We may update this policy; material changes will be reflected by a new effective date.</p>
 
         <h3>Contact</h3>
-        <p>Questions about privacy? Email <a href="mailto:haijayousif@gmail.com">haijayousif@gmail.com</a>.</p>
+        <p>Questions or requests: <a href="mailto:haijayousif@gmail.com">haijayousif@gmail.com</a>.</p>
       </section>
 
       <hr />
@@ -124,7 +115,7 @@
           <li><strong>Set your body photo</strong> — open the <em>You</em> tab and add one clear, full-body photo.</li>
           <li><strong>Add clothes</strong> — in <em>Closet</em>, photograph each garment; the background is removed and colors detected automatically.</li>
           <li><strong>Try on an outfit</strong> — in <em>Try-On</em>, choose pieces and tap generate; each garment takes a few seconds to render.</li>
-          <li><strong>Delete your account</strong> — email us and we’ll remove your account and data.</li>
+          <li><strong>Delete your account</strong> — <em>You → Delete account</em> permanently removes your account and all data.</li>
         </ul>
         <p class="muted">TootieTry is a personal app distributed privately via an unlisted App Store link.</p>
       </section>
