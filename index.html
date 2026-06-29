@@ -51,20 +51,26 @@
 
       <section id="privacy">
         <h2>Privacy Policy</h2>
-        <p class="muted">Effective date: June 18, 2026 · Contact: <a href="mailto:haijayousif@gmail.com">haijayousif@gmail.com</a></p>
+        <p class="muted">Effective date: June 28, 2026 · Contact: <a href="mailto:haijayousif@gmail.com">haijayousif@gmail.com</a></p>
 
         <p>
           TootieTry (“the app”, “we”) is a personal virtual try-on and wardrobe app. This policy
-          explains what we collect, how it’s used, who it’s shared with, and how you can delete it.
+          explains what we collect, how it’s used, who it’s shared with, how we protect it, and how
+          you can delete it.
         </p>
 
         <h3>What we collect</h3>
         <ul>
-          <li><strong>Account info</strong> — the email address and password you sign up with (the password is handled by our authentication provider; we never see it in plain text).</li>
+          <li><strong>Account info</strong> — depending on how you sign in: with <strong>email + password</strong> we store your email (the password is handled by our authentication provider; we never see it in plain text); with <strong>Sign in with Apple or Google</strong> the provider gives us your <strong>name and email address</strong>. With Sign in with Apple you can use Apple’s <strong>private email relay</strong>, in which case we only ever receive the relay address, never your real email.</li>
           <li><strong>Photos you upload</strong> — a full-body photo of yourself and photos of your clothing.</li>
           <li><strong>Wardrobe data you create</strong> — item names, categories, colors, tags, prices, saved outfits, wear logs, and outfit plans.</li>
           <li><strong>Approximate location</strong> — only if you grant permission, used once to fetch local weather for outfit suggestions. It is not stored or linked to your account.</li>
         </ul>
+        <p>
+          <strong>Face ID / Touch ID</strong> unlock is optional. If you turn it on, the biometric check happens
+          entirely <strong>on your device through iOS</strong> — we never receive, see, or store your face or
+          fingerprint data; the app only learns whether the device confirmed it was you.
+        </p>
         <p>We do <strong>not</strong> use analytics or advertising SDKs, and we do <strong>not</strong> track you across other apps or websites.</p>
 
         <h3>How your data is used</h3>
@@ -75,19 +81,38 @@
 
         <h3>Who we share data with (service providers)</h3>
         <ul>
-          <li><strong>Supabase</strong> — hosts our database, file storage, and authentication. Your photos and wardrobe data are stored here under your account, isolated by row-level security.</li>
+          <li><strong>Supabase</strong> — hosts our database, file storage, and authentication. Your photos and wardrobe data are stored here under your account, isolated by row-level security so no other user can access them.</li>
+          <li><strong>Apple / Google</strong> — only if you choose “Sign in with Apple” or “Sign in with Google,” to authenticate you and provide your name and email.</li>
           <li><strong>FASHN</strong> — a third-party AI service. When you tap “Try on,” your body photo and the selected garment images are sent to FASHN, which returns the rendered try-on image. The app asks for your explicit consent before this happens the first time.</li>
           <li><strong>A background-removal service</strong> (remove.bg or Replicate) — garment images are sent to cut out their background and detect colors.</li>
+          <li><strong>A product-page reader</strong> — when you <strong>share a product link</strong> to TootieTry, the link is sent to our server (hosted on Supabase) to fetch that web page and read the item’s image and details. For pages we can’t read directly, the link may also be sent to a rendering service (<strong>Firecrawl</strong>) to load the page. We store only the extracted item image/details (briefly cached) — never the page itself.</li>
+          <li><strong>Resend</strong> — our email provider, used to send account emails such as sign-up confirmation and password reset. It receives your email address for that purpose.</li>
           <li><strong>Open-Meteo</strong> — weather data by approximate coordinates; no personal identifiers sent.</li>
         </ul>
-        <p>These providers process your images only to perform the function above.</p>
+        <p>Images are shared with the processing providers above only through <strong>short-lived, signed links</strong>, and only to perform the function described.</p>
+
+        <h3>How we protect your data</h3>
+        <ul>
+          <li><strong>Encrypted in transit</strong> — all communication with our servers uses HTTPS.</li>
+          <li><strong>Private photo storage</strong> — your photos are kept in private, per-user storage that is not publicly browsable; the app fetches and shares them only through temporary, expiring signed links.</li>
+          <li><strong>Secure session storage</strong> — your sign-in session is stored encrypted in your device’s secure keychain, not in plain text.</li>
+          <li><strong>On-device biometrics</strong> — Face ID / Touch ID never leaves your device.</li>
+          <li><strong>Per-user isolation</strong> — database row-level security ensures you can only ever access your own data.</li>
+          <li><strong>Abuse prevention</strong> — we apply per-account rate limits and keep minimal security logs to protect the service.</li>
+        </ul>
 
         <h3>Data retention and deletion</h3>
         <p>
           We keep your data until you delete it. You can <strong>permanently delete your account and
-          all associated data</strong> at any time from the app: <strong>You → Delete account</strong>.
-          This removes your profile, photos (from storage), closet items, saved outfits, try-on
-          history, wear logs, and plans, and deletes your login. Deletion is immediate and cannot be undone.
+          all associated data</strong> at any time from the app: <strong>You → Settings → Danger zone →
+          Delete account</strong> (you confirm by typing DELETE). This removes your profile, photos
+          (from storage), closet items, saved outfits, try-on history, wear logs, and plans, and
+          deletes your login. Deletion is immediate and cannot be undone.
+        </p>
+        <p>
+          For security and abuse-prevention, we retain a minimal record that a deletion occurred (a
+          timestamp and an internal account identifier) — it contains none of your photos, wardrobe,
+          or personal content.
         </p>
 
         <h3>Children</h3>
@@ -112,12 +137,13 @@
         </div>
         <h3>Common topics</h3>
         <ul>
+          <li><strong>Sign in</strong> — use Sign in with Apple, Sign in with Google, or an email and password. You can also enable Face ID / Touch ID to unlock the app.</li>
           <li><strong>Set your body photo</strong> — open the <em>You</em> tab and add one clear, full-body photo.</li>
           <li><strong>Add clothes</strong> — in <em>Closet</em>, photograph each garment; the background is removed and colors detected automatically.</li>
           <li><strong>Try on an outfit</strong> — in <em>Try-On</em>, choose pieces and tap generate; each garment takes a few seconds to render.</li>
-          <li><strong>Delete your account</strong> — <em>You → Delete account</em> permanently removes your account and all data.</li>
+          <li><strong>Delete your account</strong> — <em>You → Settings → Danger zone → Delete account</em> permanently removes your account and all data.</li>
         </ul>
-        <p class="muted">TootieTry is a personal app distributed privately via an unlisted App Store link.</p>
+        <p class="muted">TootieTry is a personal app distributed via the App Store.</p>
       </section>
     </main>
   </body>
